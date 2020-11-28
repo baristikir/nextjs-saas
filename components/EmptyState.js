@@ -1,15 +1,17 @@
-import React from 'react'
+import React from 'react';
 import {
   Flex,
   Heading,
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
+  Button,
   Skeleton,
   Stack,
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
 
 import DashboardShell from './DashboardShell'
+import SubmitSolutionModal from './Solutions/SubmitSolution';
 
 const EmptyState = () => (
     <DashboardShell>
@@ -32,6 +34,7 @@ const EmptyState = () => (
               <Skeleton width="180px">
                 <div>won't be visible</div>
               </Skeleton>
+              <SubmitSolutionModal />
             </Stack>
           </Flex>
     </DashboardShell>

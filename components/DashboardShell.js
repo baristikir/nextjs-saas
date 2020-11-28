@@ -52,7 +52,7 @@ const DashboardShell = ({children}) => {
             alignItems="center"
             justifyContent="flex-start"
             >
-                <Button colorScheme="green" size="md">
+                <Button colorScheme="green" size="md" fontWeight="medium">
                     Upgrade to Pro ✨
                 </Button>
                 <Avatar size="md" src={auth.user.photoUrl}></Avatar>
