@@ -8,56 +8,78 @@ import {
   Button,
   Text,
   Progress,
+  Avatar,
+  InputGroup,
+  InputLeftElement
 } from '@chakra-ui/react'
+import { SearchIcon } from '@chakra-ui/icons'
 
-const DashboardShell = ({children}) => (
-    <Flex flexDirection="column">
-      <Flex
-        flexDirection="row"
-        alignItems="center"
-        justifyContent="space-between"
-        backgroundColor="white"
-        p="1rem"
-      >
-        <Stack isInline spacing={4}>
-          <Icon name="add" />
-          <Link>Challenges</Link>
-          <Link>Get Help</Link>
-        </Stack>
-        <Flex>
-          <Input />
-        </Flex>
-        <Flex>
-          <Button variantColor="green" size="md">
-            Button text
-          </Button>
-        </Flex>
-      </Flex>
-      <Flex backgroundColor="gray.50">
+import { useAuth } from '@/lib/auth'
+
+const DashboardShell = ({children}) => {
+    const auth = useAuth();
+
+    return (
+        <Flex flexDirection="column">
         <Flex
-          flexDirection="column"
-          justifyContent="flex-start"
-          backgroundColor="white"
-          width="100%"
-          maxWidth="200px"
-          p="40px"
-          alignItems="space-between"
+            flexDirection="row"
+            alignItems="center"
+            justifyContent="space-between"
+            backgroundColor="white"
+            p="1.5rem"
         >
-          <Stack width="100%" mb={8}>
-            <Text fontWeight="bold">Roadmap -</Text>
-            <Progress width="100%" height="16px" />
-          </Stack>
-          <Stack alignItems="stretch" spacing={4}>
-            <Link>Link text</Link>
-            <Link>Link text</Link>
-            <Link>Link text</Link>
-          </Stack>
+            <Stack isInline spacing={4} alignItems="center">
+                <Icon name="logo" size="24px" mr={8} />
+                <Link>Challenges</Link>
+                <Link>Get Help</Link>
+            </Stack>
+            <Flex>
+                <InputGroup>
+                    <InputLeftElement
+                    pointerEvents="none"
+                    children={<SearchIcon color="gray.300" />}
+                    />
+                    <Input type="phone" placeholder="Search for Challenges.." />
+                </InputGroup>
+            </Flex>
+            <Stack
+            isInline
+            spacing={16}
+            alignItems="center"
+            justifyContent="flex-start"
+            >
+                <Button colorScheme="green" size="md">
+                    Upgrade to Pro ✨
+                </Button>
+                <Avatar size="md" src={auth.user.photoUrl}></Avatar>
+            </Stack>
         </Flex>
-        <Flex width="100%" height="100vh">
-          {children}
+        <Flex backgroundColor="gray.50">
+            <Flex
+            flexDirection="column"
+            justifyContent="flex-start"
+            backgroundColor="white"
+            width="100%"
+            maxWidth="200px"
+            p="40px"
+            alignItems="space-between"
+            >
+            <Stack width="100%" mb={8}>
+                <Text fontWeight="bold">Roadmap -</Text>
+                <Progress width="100%" height="16px" />
+            </Stack>
+            <Stack alignItems="stretch" spacing={4}>
+                <Link>Link text</Link>
+                <Link>Link text</Link>
+                <Link>Link text</Link>
+            </Stack>
+            </Flex>
+            <Flex width="100%" height="100vh">
+            {children}
+            </Flex>
         </Flex>
-      </Flex>
-    </Flex>
-)
+        </Flex>
+    );
+}
 
-export default DashboardShell
+export default DashboardShell;
