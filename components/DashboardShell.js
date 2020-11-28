@@ -1,7 +1,6 @@
 import React from 'react'
 import {
   Flex,
-  Icon,
   Link,
   Stack,
   Input,
@@ -10,9 +9,11 @@ import {
   Progress,
   Avatar,
   InputGroup,
-  InputLeftElement
+  InputLeftElement,
+  Icon,
 } from '@chakra-ui/react'
 import { SearchIcon } from '@chakra-ui/icons'
+import { Logo } from '@/styles/logo'
 
 import { useAuth } from '@/lib/auth'
 
@@ -21,18 +22,21 @@ const DashboardShell = ({children}) => {
 
     return (
         <Flex flexDirection="column">
-        <Flex
-            flexDirection="row"
-            alignItems="center"
-            justifyContent="space-between"
-            backgroundColor="white"
-            p="1.5rem"
-        >
-            <Stack isInline spacing={4} alignItems="center">
-                <Icon name="logo" size="24px" mr={8} />
-                <Link>Challenges</Link>
-                <Link>Get Help</Link>
-            </Stack>
+            <Flex
+                flexDirection="row"
+                alignItems="center"
+                justifyContent="space-between"
+                backgroundColor="white"
+                pt="1rem"
+                pb="1rem"
+                pl="2.5rem"
+                pr="2rem"
+            >
+                <Stack isInline spacing={4} alignItems="center">
+                    <Logo size="32px" mr={8} />
+                    <Link>Challenges</Link>
+                    <Link>Get Help</Link>
+                </Stack>
             <Flex>
                 <InputGroup>
                     <InputLeftElement

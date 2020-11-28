@@ -4,7 +4,9 @@ import {
   Heading,
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink
+  BreadcrumbLink,
+  Skeleton,
+  Stack,
 } from '@chakra-ui/react'
 
 import DashboardShell from './DashboardShell'
@@ -23,6 +25,14 @@ const EmptyState = () => (
               </BreadcrumbItem>
             </Breadcrumb>
             <Heading>Dashboard</Heading>
+            <Stack>
+              <Skeleton height="20px" width="240px">
+                <div>contents wrapped</div>
+              </Skeleton>
+              <Skeleton width="180px">
+                <div>won't be visible</div>
+              </Skeleton>
+            </Stack>
           </Flex>
     </DashboardShell>
 )
